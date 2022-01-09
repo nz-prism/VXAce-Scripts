@@ -14,7 +14,7 @@ https://opensource.org/licenses/mit-license.php
 ## 概要
 マップに敷いたレール上に配置したトロッコを調べると、自動的にレールに沿って走り出すプラグインです。
 グラフィックもトロッコに乗った状態に変化します。  
-Dataフォルダの内容はサンプルプロジェクトのデータになっておりますので、下記手順にて新規プロジェクトにコピーしてお使いください。
+Dataフォルダの内容はサンプルプロジェクトのデータになっておりますので、下記手順にて新規プロジェクトにコピーしてお使いください。  
 その他使用方法の詳細についてはスクリプト上部の説明文をお読みください。
 
 ![Cart](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/Cart.png)
@@ -48,7 +48,7 @@ Dataフォルダの内容はサンプルプロジェクトのデータになっ�
 ![NameInput4](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/NameInput4.png)
 
 また、アクターごとに姓と名の順番を入れ替えることも可能です。  
-こうしたフルネームに関する設定はあらかじめアクターに設定しておくこともできますし、入力画面にてプレイヤーが設定することも可能です。  
+こうしたフルネームに関する設定はデータベース上であらかじめアクターに設定しておくこともできますし、入力画面にてプレイヤーが設定することも可能です。  
 なお姓の設定が不要であればオフにすることもできます。その場合、このスクリプトの漢字入力機能だけを利用できます。
 
 ![NameInput5](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/NameInput5.png)
