@@ -1,102 +1,111 @@
+# RPGツクールVXAce用スクリプト素材
+
+## 概要
+RPGツクールVXAce用に私（[んーぞー@nz_prism](https://twitter.com/nz_prism)）が作成したスクリプト素材は全てこのリポジトリにて公開されており、以下のライセンスにてご利用いただけます。
+
+## ライセンス
+公開しているすべてのスクリプト素材はMITライセンスにてリリースされています。  
+https://opensource.org/licenses/mit-license.php
+
+***
+
 # トロッコ搭乗(Cart.rb)
 
 ## 概要
 マップに敷いたレール上に配置したトロッコを調べると、自動的にレールに沿って走り出すプラグインです。
-グラフィックもトロッコに乗った状態に変化します。
+グラフィックもトロッコに乗った状態に変化します。  
+Dataフォルダの内容はサンプルプロジェクトのデータになっておりますので、下記手順にて新規プロジェクトにコピーしてお使いください。
+その他使用方法の詳細についてはスクリプト上部の説明文をお読みください。
 
-![CartRide](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/CartRide1.png)
+![Cart](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/Cart.png)
 
-## ライセンス
-このプラグインはMITライセンスにてリリースされています。  
-https://opensource.org/licenses/mit-license.php
-
-## 使用方法
-導入方法は通常のプラグインと同様です。  
-**js/plugins**フォルダに**ActorPictures.js**をコピーし、プラグイン管理にて有効化してください。
-その他の詳細はプラグイン説明（プラグインパラメータ）をご覧ください。  
-
-***
-
-# AltMenuScreen立ち絵表示(ActorPictureOnAltMenuScreen)
-
-## 概要
-ロンチプラグイン**AltMenuScreen.js**の表示を変更するプラグインです。顔グラフィックを描画する代わりに、立ち絵を描画します。立ち絵はベースプラグイン**ActorPictures.js**にて設定したものが反映されます。
-
-![AltMenuScreen](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/ActorPictureOnAltMenuScreen1.png)
-
-## ライセンス
-このプラグインはMITライセンスにてリリースされています。  
-https://opensource.org/licenses/mit-license.php
-
-## 使用方法
-導入方法は通常のプラグインと同様ですが、上記**ActorPictures.js**の導入が前提になります。  
-**js/plugins**フォルダに**ActorPictureOnAltMenuScreen.js**をコピーし、プラグイン管理にて**ActorPictures.js**よりも下に配置して有効化してください。  
-その他の詳細はプラグイン説明をご覧ください。  
+## 導入方法
+1. RPGツクールVXAceで新規プロジェクトを作成してください。
+1. **Data**フォルダの中身をすべて**1**の**Data**フォルダにコピー（既存ファイルと置き換え）してください。
+1. **1**をRPGツクールVXAceで開き、スクリプトエディタにて「**▼ 素材**」の「**( ここに追加 )**」以下に新規セクションを挿入してください。
+1. **3**のセクションにCart.rbの内容をすべて貼り付けてください。
+1. テストプレイで動作を確認してください。
+1. ご自身のプロジェクトにて使用する際は、トロッコの始点イベントと終点イベントをサンプルマップからコピーしてお使いください。  
 
 ***
 
-# 会話時自動立ち絵表示(PictureMessage)
+# 名前入力改造(NameInput.rb)
 
 ## 概要
-メッセージの名前枠に専用制御文字を入力するだけで、自動的にアクターの立ち絵を表示するプラグインです。マップ・戦闘どちらのイベントにも対応しています。立ち絵は上記**ActorPictures.js**にて設定したものが反映されます。
+アクターの名前に関する機能を追加するスクリプト素材です。  
+以下の2つの機能を持っています。
+1. 名前入力画面にて漢字を入力可能にする
+1. アクターに姓を設定可能にする
 
-立ち絵は左・右・中央の３箇所にそれぞれ配置することができます。  
-あるアクターがメッセージを始めると、イージングによって登場します。同じ位置に別のアクターを配置した場合、前のアクターがイージングによって退場し、次のアクターがイージングで登場します。また、今話しているアクター以外は自動的にグレートーンになります。
+![NameInput1](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/NameInput1.png)
 
-設定方法は非常にシンプルです。メッセージの名前枠に **\AP[n*位置*]** と入力するだけで、そのIDのアクターの立ち絵が登場するようになります。位置は**左・右・中央**などの文字列を指定できます。
+![NameInput2](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/NameInput2.png)
 
-![NameField](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage1.png)
+通常はアクターの名が表示されますが、ステータス画面ではフルネームで表示されます。専用制御文字を使用することでメッセージに姓・名・フルネームをそれぞれ表示することも可能です。  
 
-会話終了時は自動的に立ち絵が消えることはありませんのでプラグインコマンドにて手動で退場させます。これにより、立ち絵消去のタイミングをイベントでコントロールすることができます。
+![NameInput3](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/NameInput3.png)
 
-また、表情などの差分も顔グラフィックを使用することで簡単に切り替えられます。
+![NameInput4](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/NameInput4.png)
 
+また、アクターごとに姓と名の順番を入れ替えることも可能です。  
+こうしたフルネームに関する設定はあらかじめアクターに設定しておくこともできますし、入力画面にてプレイヤーが設定することも可能です。  
+なお姓の設定が不要であればオフにすることもできます。その場合、このスクリプトの漢字入力機能だけを利用できます。
 
-顔グラフィックを指定することでアクターの立ち絵インデックスが変更され、それに対応する立ち絵（**ActorPictures.js**により設定）が表示されます。  
-顔グラフィックはあくまでもインデックス指定用であり実際には表示されませんので、アクターごとに専用画像を用意する必要はなく、共通画像で問題ありません。
+![NameInput5](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/NameInput5.png)
 
-![Face](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage2.png)
+その他使用方法の詳細についてはスクリプト上部の説明文をお読みください。
 
-![Expressions](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage3.png)
+***
 
-立ち絵の表示座標はプラグインパラメータにより左・右・中央ごとに設定できます。また、立ち絵によって表示位置がズレる場合、**ActorPictures.js**のプラグインパラメータによって画像ごとに調整することも可能です。
+# オプション画面(Option.rb)
 
-![Coordinates](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage4.png)
+## 概要
+メニュー項目としてオプションコマンドを追加します。また、斜め移動やカーソルの記憶など、ゲーム上の実際の機能も追加されます。  
+主として以下の機能及びそれに対応するオプション項目があります。
 
-![Calibration](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage5.png)
+- オートダッシュ
+- ダッシュ速度変更
+- 斜め移動
+- メッセージ瞬間表示
+- カーソルの記憶
+- ウィンドウカラーの変更
+- ウィンドウ透明度の変更
+- ウィンドウスキンの変更
+- BGM・ME音量変更
+- BGS・SE音量変更
+- 全てのオプションの値をデフォルトに戻す
 
-また、ループアニメの再生にも対応しています。立ち絵が表示されている間、まばたきなどのアニメを再生し続けることができます。
+![Option](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/Option.png)
 
+その他使用方法の詳細についてはスクリプト上部の説明文をお読みください。
 
-素材規格としては、横方向にパターンを任意の数だけ並べることでこのループアニメに対応します。
+***
 
-![LoopAnimation](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage6.png)
+# あらすじ拡張(StoryPlus.rb)
 
-アニメは**ActorPictures.js**のプラグインパラメータにて設定できます。パターン数やタイミングを細かく調整できます。
+## 概要
+メニュー画面に「あらすじ」を追加します。あらすじは、ストーリー進行度変数に応じて表示するテキストを切り替えられます。
 
-![AnimationParameters](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage7.png)
+![NameInput3](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/NameInput3.png)
 
-立ち絵をコントロールするプラグインコマンドもいくつか用意されています。プラグインコマンド**フキダシアイコンの表示**では、フキダシアイコンを表示することができます。アイコンの種類はツクール標準機能と同じものが選べるほか、位置や拡大率も設定できます。
+![StoryPlus1](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/StoryPlus1.png)
 
-![Balloon](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage8.png)
+![StoryPlus2](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/StoryPlus2.png)
 
-プラグインコマンド**アニメーションの表示**にて、スキル等と同じアニメを立ち絵に表示することもできます。
+その他使用方法の詳細についてはスクリプト上部の説明文をお読みください。
 
-![ShowAnimation](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage9.png)
+***
 
-ピクチャ関連の標準イベントコマンドと同様の各種プラグインコマンドが用意されており、立ち絵の表示状態を制御できます。回転や色調変化のほか、立ち絵を移動させることも可能です。標準のイベントコマンド**ピクチャの移動**と同様に座標だけでなく拡大率や透明度も変更できますし、イージングさせることも可能です。
+# 未使用素材隔離(UnusedMaterialIsolation.rb)
 
-![RotationAndTone](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage10.png)
+## 概要
+プロジェクトフォルダ内に存在するが、実際のゲーム中で一度も使用されない画像・音声素材を別フォルダに隔離します。使用前は必ずバックアップをお取りください。  
+このスクリプトを導入するとテストプレイ時、メニューの「ゲーム終了」から「シャットダウン」を選択すると画像・音声素材で、テストプレイ中実際に使用された素材のファイル名がリストアップされたテキストファイル**UsedGraphics.txt**および**UsedAudio.txt**が作成されます。  
+テストプレイ時、メニューの「ゲーム終了」から「未使用素材を隔離して終了」を選択すると、上記テキストファイルにない画像・音声素材が**UnusedMaterials**フォルダ内の画像・音声用フォルダに隔離されます。また上記テキストファイルもそれぞれのフォルダ内に移動します。  
+テキストファイルに書き込まれる素材ファイル名はあくまでもテストプレイ中実際に使用された素材のみです。そのため例えばエンディングに使用される素材は、テストプレイ中実際にエンディングを迎えない限り書き込まれることはない、という点にご注意ください。
 
-立ち絵は非会話時にも呼び出すことが可能です。表示状態はセーブデータに含まれるので、ロードすれば再現されます。
+![UnusedMaterialIsolation1](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/UnusedMaterialIsolation1.png)
 
-![PictureOnMap](https://github.com/nz-prism/RPG-Maker-MZ/blob/master/ReadmeImages/PictureMessage11.png)
+![UnusedMaterialIsolation2](https://github.com/nz-prism/VXAce-Scripts/blob/master/ReadmeImages/UnusedMaterialIsolation2.png)
 
-## ライセンス
-このプラグインはMITライセンスにてリリースされています。  
-https://opensource.org/licenses/mit-license.php
-
-## 使用方法
-導入方法は通常のプラグインと同様ですが、上記**ActorPictures.js**の導入が前提になります。  
-**js/plugins**フォルダに**PictureMessage.js**をコピーし、プラグイン管理にて**ActorPictures.js**よりも下に配置して有効化してください。  
-その他の詳細はプラグイン説明をご覧ください。
+その他使用方法の詳細についてはスクリプト上部の説明文をお読みください。
