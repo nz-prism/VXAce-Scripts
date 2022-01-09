@@ -1,189 +1,190 @@
 #==============================================================================
-# ★ オプション画面
+# �� �I�v�V�������
 #------------------------------------------------------------------------------
 # ver. 2.0.1
 # by nz_prism
 # https://github.com/nz-prism/VXAce-Scripts/blob/master/Option.rb
 #------------------------------------------------------------------------------
-# ■ 導入方法
-# 1. スクリプトエディタにて、「▼ 素材」以下に新規セクションを挿入してください。
-# 2. 1 のセクションにこのスクリプト全体を貼り付けてください。
-# 3. 必要なら以下のカスタマイズセクションにて、お好みの設定に変更してください。
+# �� �������@
+# 1. �X�N���v�g�G�f�B�^�ɂāA�u�� �f�ށv�́u( �����ɒǉ� )�v�ȉ��ɐV�K�Z�N�V����
+#    ��}�����Ă��������B
+# 2. 1 �̃Z�N�V�����ɂ��̃X�N���v�g�S�̂�\��t���Ă��������B
+# 3. �K�v�Ȃ�ȉ��̃J�X�^�}�C�Y�Z�N�V�����ɂāA���D�݂̐ݒ�ɕύX���Ă��������B
 #
-# ■ ウィンドウスキンについて
-# 　オプションにてウィンドウスキンを切り替えられるようにするには、
-# Graphics/System フォルダに「 Window2 」というファイル名にしたウィンドウ素材を
-# 入れてください。 3 番目なら「 Window3 」になります（以降も同様）。
-# なお追加スキンがない場合、ウィンドウスキン変更の項目は表示されません。
+# �� �E�B���h�E�X�L���ɂ���
+# �@�I�v�V�����ɂăE�B���h�E�X�L����؂�ւ�����悤�ɂ���ɂ́A
+# Graphics/System �t�H���_�Ɂu Window2 �v�Ƃ����t�@�C�����ɂ����E�B���h�E�f�ނ�
+# ����Ă��������B 3 �ԖڂȂ�u Window3 �v�ɂȂ�܂��i�ȍ~�����l�j�B
+# �Ȃ��ǉ��X�L�����Ȃ��ꍇ�A�E�B���h�E�X�L���ύX�̍��ڂ͕\������܂���B
 #------------------------------------------------------------------------------
-# 本素材はMITライセンスにてリリースされています。
+# �{�f�ނ�MIT���C�Z���X�ɂă����[�X����Ă��܂��B
 # https://opensource.org/licenses/mit-license.php
 #------------------------------------------------------------------------------
-# 2014/04/20 2.0.1 微バグを修正
-# 2014/04/11 2.0.0 「カーソルの記憶」の追加をはじめとした様々な更新を適用
-#                  旧版とのセーブデータの互換性なし
-# 2012/07/28 1.0.2 不要処理を削除
-# 2012/07/24 1.0.1 Window_Base の initialize メソッドを再定義ではなく、
-#                  alias に変更
-# 2012/07/24 1.0.0 公開
+# 2014/04/20 2.0.1 ���o�O���C��
+# 2014/04/11 2.0.0 �u�J�[�\���̋L���v�̒ǉ����͂��߂Ƃ����l�X�ȍX�V��K�p
+#                  ���łƂ̃Z�[�u�f�[�^�̌݊����Ȃ�
+# 2012/07/28 1.0.2 �s�v�������폜
+# 2012/07/24 1.0.1 Window_Base �� initialize ���\�b�h���Ē�`�ł͂Ȃ��A
+#                  alias �ɕύX
+# 2012/07/24 1.0.0 ���J
 #==============================================================================
 
 class Window_NZPrism_Option < Window_Selectable
 #==============================================================================
-# ★ カスタマイズセクション
+# �� �J�X�^�}�C�Y�Z�N�V����
 #------------------------------------------------------------------------------
-# 　以下の各設定をユーザーの好みに応じて変更できます。 = の右辺の数値や文字列を
-# 任意に変更してください。 " " で囲まれた部分以外は全角文字を入力しないでくださ
-# い。 [ ] や { } 、 " " や , などの記号を消さないでください。
+# �@�ȉ��̊e�ݒ�����[�U�[�̍D�݂ɉ����ĕύX�ł��܂��B = �̉E�ӂ̐��l�╶�����
+# �C�ӂɕύX���Ă��������B " " �ň͂܂ꂽ�����ȊO�͑S�p��������͂��Ȃ��ł�����
+# ���B [ ] �� { } �A " " �� , �Ȃǂ̋L���������Ȃ��ł��������B
 #==============================================================================
   
-  # 選択項目
-  # 使用する場合は true 、不使用の場合は false を選択してください
+  # �I������
+  # �g�p����ꍇ�� true �A�s�g�p�̏ꍇ�� false ��I�����Ă�������
     
-    # オートダッシュ
+    # �I�[�g�_�b�V��
     AddAutoDash        = true
     
-    # ダッシュ速度
+    # �_�b�V�����x
     AddDashSpeed       = true
     
-    # 斜め移動
+    # �΂߈ړ�
     AddDiagonalMove    = true
     
-    # メッセージ表示速度
+    # ���b�Z�[�W�\�����x
     AddFastMessage     = true
     
-    # カーソルの記憶
+    # �J�[�\���̋L��
     Add_C_Memorization = true
   
   
-  # ウィンドウスキンの数（「 Window.png 」も含めてください）
+  # �E�B���h�E�X�L���̐��i�u Window.png �v���܂߂Ă��������j
   Max_W_Skin = 1
   
   
-  # 各項目のデフォルト値
+  # �e���ڂ̃f�t�H���g�l
     
-    # オートダッシュ（true ／ false）
+    # �I�[�g�_�b�V���itrue �^ false�j
     DefaultAutoDash        = false
     
-    # ダッシュ速度（1 〜 3）
+    # �_�b�V�����x�i1 ? 3�j
     DefaultDashSpeed       = 1
     
-    # 斜め移動（true ／ false）
+    # �΂߈ړ��itrue �^ false�j
     DefaultDiagonalMove    = false
     
-    # メッセージ表示速度（true ／ false）
+    # ���b�Z�[�W�\�����x�itrue �^ false�j
     DefaultFastMessage     = false
     
-    # カーソルの記憶（0 〜 2）
-    # 0 : 無効
-    # 1 : ターン毎に初期化
-    # 2 : 有効
+    # �J�[�\���̋L���i0 ? 2�j
+    # 0 : ����
+    # 1 : �^�[�����ɏ�����
+    # 2 : �L��
     Default_C_Memorization = 2
     
-    # ウィンドウスキン ID （「 Window.png 」の ID は 1 です）
+    # �E�B���h�E�X�L�� ID �i�u Window.png �v�� ID �� 1 �ł��j
     Default_W_Skin         = 1
     
-    # ウィンドウ透明度（0 〜 255）
+    # �E�B���h�E�����x�i0 ? 255�j
     Default_W_Opacity      = 180
     
-    # BGM 音量（0 〜 100）
+    # BGM ���ʁi0 ? 100�j
     Default_M_Volume       = 75
     
-    # SE 音量（0 〜 100）
+    # SE ���ʁi0 ? 100�j
     Default_S_Volume       = 60
     
   
   
   #============================================================================
-  # ★ アウトラインなしフォントにするウィンドウスキン
+  # �� �A�E�g���C���Ȃ��t�H���g�ɂ���E�B���h�E�X�L��
   #----------------------------------------------------------------------------
-  # 　以下に入力した ID のウィンドウスキンのフォントには、アウトラインがつかずに
-  # 影がつくようになります。フォントがにじんで見づらくなってしまうウィンドウス
-  # キンがある場合、ここに設定してみてください。
-  # 　「 , 」で区切ればいくつでも設定可能です。
+  # �@�ȉ��ɓ��͂��� ID �̃E�B���h�E�X�L���̃t�H���g�ɂ́A�A�E�g���C����������
+  # �e�����悤�ɂȂ�܂��B�t�H���g���ɂ���Ō��Â炭�Ȃ��Ă��܂��E�B���h�E�X
+  # �L��������ꍇ�A�����ɐݒ肵�Ă݂Ă��������B
+  # �@�u , �v�ŋ�؂�΂����ł��ݒ�\�ł��B
   #============================================================================
   NoOutlineFontSkins = [
     100, 200
-  ]# ↑ダミー ID です。これを消して任意の ID を入力してください
+  ]# ���_�~�[ ID �ł��B����������ĔC�ӂ� ID ����͂��Ă�������
   
   
   
-  # 各設定項目の名前
+  # �e�ݒ荀�ڂ̖��O
   
-  AutoDash       = "オートダッシュ"
+  AutoDash       = "�I�[�g�_�b�V��"
   
-  DashSpeed      = "ダッシュ速度"
+  DashSpeed      = "�_�b�V�����x"
   
-  DiagonalMove   = "斜め移動"
+  DiagonalMove   = "�΂߈ړ�"
   
-  FastMessage    = "メッセージ表示速度"
+  FastMessage    = "���b�Z�[�W�\�����x"
   
-  C_Memorization = "カーソルの記憶"
+  C_Memorization = "�J�[�\���̋L��"
   
-  W_Skin         = "ウィンドウスキン"
+  W_Skin         = "�E�B���h�E�X�L��"
   
-  W_Tone         = "ウィンドウカラー"
+  W_Tone         = "�E�B���h�E�J���["
   
-  W_Opacity      = "ウィンドウ透明度"
+  W_Opacity      = "�E�B���h�E�����x"
   
-  M_Volume       = "ＢＧＭ音量"
+  M_Volume       = "�a�f�l����"
   
-  S_Volume       = "ＳＥ音量"
+  S_Volume       = "�r�d����"
   
-  Default        = "デフォルト"
+  Default        = "�f�t�H���g"
   
   
-  # 各設定項目の説明文
+  # �e�ݒ荀�ڂ̐�����
   
-  Help_AutoDash       = # オートダッシュ
-  "「オン」では通常ダッシュ、 ¥¥C[14]A¥¥C[0] 押下中歩行になります"
+  Help_AutoDash       = # �I�[�g�_�b�V��
+  "�u�I���v�ł͒ʏ�_�b�V���A \\C[14]A\\C[0] ���������s�ɂȂ�܂�"
     
-  Help_DashSpeed      = # ダッシュ速度
-  "ダッシュ速度を変更します"
+  Help_DashSpeed      = # �_�b�V�����x
+  "�_�b�V�����x��ύX���܂�"
   
-  Help_DiagonalMove   = # 斜め移動
-  "マップ画面で斜め移動を可能にします"
+  Help_DiagonalMove   = # �΂߈ړ�
+  "�}�b�v��ʂŎ΂߈ړ����\�ɂ��܂�"
     
-  Help_FastMessage    = # メッセージ表示速度
-  "「瞬時」ではメッセージが即座に表示されます"
+  Help_FastMessage    = # ���b�Z�[�W�\�����x
+  "�u�u���v�ł̓��b�Z�[�W�������ɕ\������܂�"
   
-  Help_C_Memorization = # カーソルの記憶
-  "カーソルの記憶方法を変更します"
+  Help_C_Memorization = # �J�[�\���̋L��
+  "�J�[�\���̋L�����@��ύX���܂�"
     
-  Help_W_Skin         = # ウィンドウスキン
-  "ウィンドウスキンを変更します"
+  Help_W_Skin         = # �E�B���h�E�X�L��
+  "�E�B���h�E�X�L����ύX���܂�"
   
-  Help_W_Tone_R       = # ウィンドウカラー・R値
-  "ウィンドウカラーのＲ値を変更します"
+  Help_W_Tone_R       = # �E�B���h�E�J���[�ER�l
+  "�E�B���h�E�J���[�̂q�l��ύX���܂�"
     
-  Help_W_Tone_G       = # ウィンドウカラー・G値
-  "ウィンドウカラーのＧ値を変更します"
+  Help_W_Tone_G       = # �E�B���h�E�J���[�EG�l
+  "�E�B���h�E�J���[�̂f�l��ύX���܂�"
     
-  Help_W_Tone_B       = # ウィンドウカラー・B値
-  "ウィンドウカラーのＢ値を変更します"
+  Help_W_Tone_B       = # �E�B���h�E�J���[�EB�l
+  "�E�B���h�E�J���[�̂a�l��ύX���܂�"
   
-  Help_W_Opacity      = # ウィンドウ透明度
-  "ウィンドウの透明度を変更します。低いほど背景が透けます"
+  Help_W_Opacity      = # �E�B���h�E�����x
+  "�E�B���h�E�̓����x��ύX���܂��B�Ⴂ�قǔw�i�������܂�"
   
-  Help_M_Volume       = # BGM音量
-  "ＢＧＭの音量を調節します"
+  Help_M_Volume       = # BGM����
+  "�a�f�l�̉��ʂ𒲐߂��܂�"
     
-  Help_S_Volume       = # SE音量
-  "ＳＥの音量を調節します"
+  Help_S_Volume       = # SE����
+  "�r�d�̉��ʂ𒲐߂��܂�"
     
-  Help_Default        = # デフォルト
-  "すべての設定をデフォルト値に戻します"
+  Help_Default        = # �f�t�H���g
+  "���ׂĂ̐ݒ���f�t�H���g�l�ɖ߂��܂�"
   
   
   
 #------------------------------------------------------------------------------
-# ★ カスタマイズここまで
+# �� �J�X�^�}�C�Y�����܂�
 #------------------------------------------------------------------------------
 end
 #------------------------------------------------------------------------------
 class Font
   #--------------------------------------------------------------------------
-  # ★ オプションにて設定した「アウトラインなしフォントスキン」を適用
+  # �� �I�v�V�����ɂĐݒ肵���u�A�E�g���C���Ȃ��t�H���g�X�L���v��K�p
   #--------------------------------------------------------------------------
   def self.adapt_windowskin
     nofs = Window_NZPrism_Option::NoOutlineFontSkins.include?($game_system.w_skin)
@@ -194,16 +195,16 @@ end
 #------------------------------------------------------------------------------
 class RPG::BGM
   #--------------------------------------------------------------------------
-  # ○ BGM の演奏
+  # �� BGM �̉��t
   #--------------------------------------------------------------------------
   def play(pos = 0)
     if @name.empty?
       Audio.bgm_stop
       @@last = RPG::BGM.new
     else
-      if $game_system.m_master_volume == 0         # ボリュームが 0 なら
-        volume = 0                                 # 無音にする
-      else                                         # それ以外なら最低でも 5 残る
+      if $game_system.m_master_volume == 0         # �{�����[���� 0 �Ȃ�
+        volume = 0                                 # �����ɂ���
+      else                                         # ����ȊO�Ȃ�Œ�ł� 5 �c��
         volume = [[@volume+$game_system.m_master_volume-100, 5].max, 100].min
       end
       Audio.bgm_play('Audio/BGM/' + @name, volume, @pitch, pos)
@@ -214,16 +215,16 @@ end
 #------------------------------------------------------------------------------
 class RPG::BGS
   #--------------------------------------------------------------------------
-  # ○ BGS の演奏
+  # �� BGS �̉��t
   #--------------------------------------------------------------------------
   def play(pos = 0)
     if @name.empty?
       Audio.bgs_stop
       @@last = RPG::BGS.new
     else
-      if $game_system.s_master_volume == 0         # ボリュームが 0 なら
-        volume = 0                                 # 無音にする
-      else                                         # それ以外なら最低でも 5 残る
+      if $game_system.s_master_volume == 0         # �{�����[���� 0 �Ȃ�
+        volume = 0                                 # �����ɂ���
+      else                                         # ����ȊO�Ȃ�Œ�ł� 5 �c��
         volume = [[@volume+$game_system.s_master_volume-80, 5].max, 100].min
       end
       Audio.bgs_play('Audio/BGS/' + @name, volume, @pitch, pos)
@@ -234,15 +235,15 @@ end
 #------------------------------------------------------------------------------
 class RPG::ME
   #--------------------------------------------------------------------------
-  # ○ ME の演奏
+  # �� ME �̉��t
   #--------------------------------------------------------------------------
   def play
     if @name.empty?
       Audio.me_stop
     else
-      if $game_system.m_master_volume == 0         # ボリュームが 0 なら
-        volume = 0                                 # 無音にする
-      else                                         # それ以外なら最低でも 5 残る
+      if $game_system.m_master_volume == 0         # �{�����[���� 0 �Ȃ�
+        volume = 0                                 # �����ɂ���
+      else                                         # ����ȊO�Ȃ�Œ�ł� 5 �c��
         volume = [[@volume+$game_system.m_master_volume-100, 5].max, 100].min
       end
       Audio.me_play('Audio/ME/' + @name, volume, @pitch)
@@ -252,13 +253,13 @@ end
 #------------------------------------------------------------------------------
 class RPG::SE
   #--------------------------------------------------------------------------
-  # ○ SE の演奏
+  # �� SE �̉��t
   #--------------------------------------------------------------------------
   def play
     unless @name.empty?
-      if $game_system.s_master_volume == 0         # ボリュームが 0 なら
-        volume = 0                                 # 無音にする
-      else                                         # それ以外なら最低でも 5 残る
+      if $game_system.s_master_volume == 0         # �{�����[���� 0 �Ȃ�
+        volume = 0                                 # �����ɂ���
+      else                                         # ����ȊO�Ȃ�Œ�ł� 5 �c��
         volume = [[@volume+$game_system.s_master_volume-80, 5].max, 100].min
       end
       Audio.se_play('Audio/SE/' + @name, volume, @pitch)
@@ -268,7 +269,7 @@ end
 #------------------------------------------------------------------------------
 module DataManager
   #--------------------------------------------------------------------------
-  # ○ セーブヘッダの作成
+  # �� �Z�[�u�w�b�_�̍쐬
   #--------------------------------------------------------------------------
   class << self; alias :nzprism_option_make_save_header :make_save_header; end
   def self.make_save_header
@@ -281,19 +282,19 @@ end
 #------------------------------------------------------------------------------
 class Game_System
   #--------------------------------------------------------------------------
-  # ★ 公開インスタンス変数
+  # �� ���J�C���X�^���X�ϐ�
   #--------------------------------------------------------------------------
-  attr_reader   :m_master_volume          # BGM 音量
-  attr_reader   :s_master_volume          # SE 音量
-  attr_accessor :auto_dash                # オートダッシュ
-  attr_accessor :dash_speed               # ダッシュ速度
-  attr_accessor :diagonal_move            # 斜め移動
-  attr_accessor :fast_message             # メッセージ瞬間表示
-  attr_accessor :c_memorization           # カーソルの記憶
-  attr_accessor :w_skin                   # ウィンドウスキン
-  attr_accessor :w_opacity                # ウィンドウ透明度
+  attr_reader   :m_master_volume          # BGM ����
+  attr_reader   :s_master_volume          # SE ����
+  attr_accessor :auto_dash                # �I�[�g�_�b�V��
+  attr_accessor :dash_speed               # �_�b�V�����x
+  attr_accessor :diagonal_move            # �΂߈ړ�
+  attr_accessor :fast_message             # ���b�Z�[�W�u�ԕ\��
+  attr_accessor :c_memorization           # �J�[�\���̋L��
+  attr_accessor :w_skin                   # �E�B���h�E�X�L��
+  attr_accessor :w_opacity                # �E�B���h�E�����x
   #--------------------------------------------------------------------------
-  # ○ オブジェクト初期化
+  # �� �I�u�W�F�N�g������
   #--------------------------------------------------------------------------
   alias :nzprism_option_initialize :initialize
   def initialize
@@ -311,39 +312,39 @@ class Game_System
     @s_master_volume = Window_NZPrism_Option::Default_S_Volume
   end
   #--------------------------------------------------------------------------
-  # ★ BGS の保存
+  # �� BGS �̕ۑ�
   #--------------------------------------------------------------------------
   def save_bgs
     @saved_bgs = RPG::BGS.last
   end
   #--------------------------------------------------------------------------
-  # ★ BGM / ME ボリュームの変更
+  # �� BGM / ME �{�����[���̕ύX
   #--------------------------------------------------------------------------
   def m_master_volume=(volume)
-    @m_master_volume = volume         # ボリューム変更時、
-    save_bgm                          # 現在のBGMを記録することで
-    @saved_bgm.play if @saved_bgm     # 途切れずに演奏を再開可能
+    @m_master_volume = volume         # �{�����[���ύX���A
+    save_bgm                          # ���݂�BGM���L�^���邱�Ƃ�
+    @saved_bgm.play if @saved_bgm     # �r�؂ꂸ�ɉ��t���ĊJ�\
   end
   #--------------------------------------------------------------------------
-  # ★ BGS / SE ボリュームの変更
+  # �� BGS / SE �{�����[���̕ύX
   #--------------------------------------------------------------------------
   def s_master_volume=(volume)
-    @s_master_volume = volume         # ボリューム変更時、
-    save_bgs                          # 現在のBGSを記録することで
-    @saved_bgs.play if @saved_bgs     # 途切れずに演奏を再開可能
+    @s_master_volume = volume         # �{�����[���ύX���A
+    save_bgs                          # ���݂�BGS���L�^���邱�Ƃ�
+    @saved_bgs.play if @saved_bgs     # �r�؂ꂸ�ɉ��t���ĊJ�\
   end
 end
 #------------------------------------------------------------------------------
 class Game_Actor
   #--------------------------------------------------------------------------
-  # ★ 公開インスタンス変数
+  # �� ���J�C���X�^���X�ϐ�
   #--------------------------------------------------------------------------
-  attr_writer   :last_skill               # カーソル記憶用 : スキル
+  attr_writer   :last_skill               # �J�[�\���L���p : �X�L��
 end
 #------------------------------------------------------------------------------
 class Game_Party
   #--------------------------------------------------------------------------
-  # ★ カーソル記憶用アイテムの初期化
+  # �� �J�[�\���L���p�A�C�e���̏�����
   #--------------------------------------------------------------------------
   def nzprism_option_init_last_items
     @last_item = Game_BaseItem.new
@@ -353,7 +354,7 @@ end
 #------------------------------------------------------------------------------
 class Game_CharacterBase
   #--------------------------------------------------------------------------
-  # ○ 移動速度の取得（ダッシュを考慮）
+  # �� �ړ����x�̎擾�i�_�b�V�����l���j
   #--------------------------------------------------------------------------
   alias :nzprism_option_real_move_speed :real_move_speed
   def real_move_speed
@@ -362,9 +363,9 @@ class Game_CharacterBase
     [speed, 7].min
   end
   #--------------------------------------------------------------------------
-  # ○ 斜めに移動
-  #     horz : 横方向（4 or 6）
-  #     vert : 縦方向（2 or 8）
+  # �� �΂߂Ɉړ�
+  #     horz : �������i4 or 6�j
+  #     vert : �c�����i2 or 8�j
   #--------------------------------------------------------------------------
   def move_diagonal(horz, vert)
     if diagonal_passable?(x, y, horz, vert)
@@ -390,7 +391,7 @@ end
 #------------------------------------------------------------------------------
 class Game_Player
   #--------------------------------------------------------------------------
-  # ○ ダッシュ状態判定
+  # �� �_�b�V����Ԕ���
   #--------------------------------------------------------------------------
   alias :nzprism_option_dash? :dash?
   def dash?
@@ -404,7 +405,7 @@ class Game_Player
     end
   end
   #--------------------------------------------------------------------------
-  # ○ 方向ボタン入力による移動処理
+  # �� �����{�^�����͂ɂ��ړ�����
   #--------------------------------------------------------------------------
   def move_by_input
     return if !movable? || $game_map.interpreter.running?
@@ -423,7 +424,7 @@ end
 #------------------------------------------------------------------------------
 class Game_Vehicle
   #--------------------------------------------------------------------------
-  # ○ 移動速度の取得
+  # �� �ړ����x�̎擾
   #--------------------------------------------------------------------------
   alias :nzprism_option_speed :speed
   def speed
@@ -433,7 +434,7 @@ end
 #------------------------------------------------------------------------------
 class Window_Base
   #--------------------------------------------------------------------------
-  # ○ オブジェクト初期化
+  # �� �I�u�W�F�N�g������
   #--------------------------------------------------------------------------
   alias :nzprism_option_initialize :initialize
   def initialize(x, y, width, height)
@@ -442,7 +443,7 @@ class Window_Base
     self.back_opacity = $game_system.w_opacity
   end
   #--------------------------------------------------------------------------
-  # ★ 水平線の描画
+  # �� �������̕`��
   #--------------------------------------------------------------------------
   def draw_horz_line(y, color = normal_color, alpha = 48)
     line_y = y + line_height / 2 - 1
@@ -450,7 +451,7 @@ class Window_Base
     contents.fill_rect(0, line_y, contents_width, 2, color)
   end
   #--------------------------------------------------------------------------
-  # ★ ウィンドウスキン ファイル名の取得
+  # �� �E�B���h�E�X�L�� �t�@�C�����̎擾
   #--------------------------------------------------------------------------
   def windowskin_name(skin_id = $game_system.w_skin)
     skin_name = "Window"
@@ -461,7 +462,7 @@ end
 #------------------------------------------------------------------------------
 class Window_Message
   #--------------------------------------------------------------------------
-  # ○ 一文字出力後のウェイト
+  # �� �ꕶ���o�͌�̃E�F�C�g
   #--------------------------------------------------------------------------
   alias :nzprism_option_wait_for_one_character :wait_for_one_character
   def wait_for_one_character
@@ -470,7 +471,7 @@ class Window_Message
     end
   end
   #--------------------------------------------------------------------------
-  # ○ ウェイト
+  # �� �E�F�C�g
   #--------------------------------------------------------------------------
   alias :nzprism_option_wait :wait
   def wait(duration)
@@ -481,15 +482,15 @@ end
 #------------------------------------------------------------------------------
 class Window_MenuCommand
   #--------------------------------------------------------------------------
-  # ○ 独自コマンドの追加用
+  # �� �Ǝ��R�}���h�̒ǉ��p
   #--------------------------------------------------------------------------
   alias :nzprism_option_add_original_commands :add_original_commands
   def add_original_commands
     nzprism_option_add_original_commands
-    add_command("オプション", :option)
+    add_command("�I�v�V����", :option)
   end
   #--------------------------------------------------------------------------
-  # ○ 前回の選択位置を復帰
+  # �� �O��̑I���ʒu�𕜋A
   #--------------------------------------------------------------------------
   alias :nzprism_option_select_last :select_last
   def select_last
@@ -503,7 +504,7 @@ end
 #------------------------------------------------------------------------------
 class Window_MenuStatus
   #--------------------------------------------------------------------------
-  # ○ 前回の選択位置を復帰
+  # �� �O��̑I���ʒu�𕜋A
   #--------------------------------------------------------------------------
   alias :nzprism_option_select_last :select_last
   def select_last
@@ -517,7 +518,7 @@ end
 #------------------------------------------------------------------------------
 class Window_MenuActor
   #--------------------------------------------------------------------------
-  # ○ 前回の選択位置を復帰
+  # �� �O��̑I���ʒu�𕜋A
   #--------------------------------------------------------------------------
   alias :nzprism_option_select_last :select_last
   def select_last
@@ -531,7 +532,7 @@ end
 #------------------------------------------------------------------------------
 class Window_ItemList
   #--------------------------------------------------------------------------
-  # ○ 前回の選択位置を復帰
+  # �� �O��̑I���ʒu�𕜋A
   #--------------------------------------------------------------------------
   alias :nzprism_option_select_last :select_last
   def select_last
@@ -545,7 +546,7 @@ end
 #------------------------------------------------------------------------------
 class Window_SkillCommand
   #--------------------------------------------------------------------------
-  # ○ 前回の選択位置を復帰
+  # �� �O��̑I���ʒu�𕜋A
   #--------------------------------------------------------------------------
   alias :nzprism_option_select_last :select_last
   def select_last
@@ -559,7 +560,7 @@ end
 #------------------------------------------------------------------------------
 class Window_SkillList
   #--------------------------------------------------------------------------
-  # ○ 前回の選択位置を復帰
+  # �� �O��̑I���ʒu�𕜋A
   #--------------------------------------------------------------------------
   alias :nzprism_option_select_last :select_last
   def select_last
@@ -573,8 +574,8 @@ end
 #------------------------------------------------------------------------------
 class Window_SaveFile
   #--------------------------------------------------------------------------
-  # ○ オブジェクト初期化
-  #     index : セーブファイルのインデックス
+  # �� �I�u�W�F�N�g������
+  #     index : �Z�[�u�t�@�C���̃C���f�b�N�X
   #--------------------------------------------------------------------------
   def initialize(height, index)
     super(0, index * height, Graphics.width, height)
@@ -584,7 +585,7 @@ class Window_SaveFile
     @selected = false
   end
   #--------------------------------------------------------------------------
-  # ★ ウィンドウの各種設定をセットアップ
+  # �� �E�B���h�E�̊e��ݒ���Z�b�g�A�b�v
   #--------------------------------------------------------------------------
   def setup_window
     return false unless header = DataManager.load_header(@file_index)
@@ -600,7 +601,7 @@ class Window_SaveFile
     return true
   end
   #--------------------------------------------------------------------------
-  # ○ 色調の更新
+  # �� �F���̍X�V
   #--------------------------------------------------------------------------
   alias :nzprism_option_update_tone :update_tone
   def update_tone
@@ -609,7 +610,7 @@ end
 #------------------------------------------------------------------------------
 class Scene_Title
   #--------------------------------------------------------------------------
-  # ○ 開始処理
+  # �� �J�n����
   #--------------------------------------------------------------------------
   alias :nzprism_option_start :start
   def start
@@ -620,7 +621,7 @@ end
 #------------------------------------------------------------------------------
 class Scene_Map
   #--------------------------------------------------------------------------
-  # ○ 開始処理
+  # �� �J�n����
   #--------------------------------------------------------------------------
   alias :nzprism_option_start :start
   def start
@@ -631,7 +632,7 @@ end
 #------------------------------------------------------------------------------
 class Scene_Menu
   #--------------------------------------------------------------------------
-  # ○ 開始処理
+  # �� �J�n����
   #--------------------------------------------------------------------------
   alias :nzprism_option_start :start
   def start
@@ -639,7 +640,7 @@ class Scene_Menu
     nzprism_option_start
   end
   #--------------------------------------------------------------------------
-  # ○ コマンドウィンドウの作成
+  # �� �R�}���h�E�B���h�E�̍쐬
   #--------------------------------------------------------------------------
   alias :nzprism_option_create_command_window :create_command_window
   def create_command_window
@@ -647,7 +648,7 @@ class Scene_Menu
     @command_window.set_handler(:option, method(:command_option))
   end
   #--------------------------------------------------------------------------
-  # ★ コマンド［オプション］
+  # �� �R�}���h�m�I�v�V�����n
   #--------------------------------------------------------------------------
   def command_option
     SceneManager.call(Scene_NZPrism_Option)
@@ -656,7 +657,7 @@ end
 #------------------------------------------------------------------------------
 class Scene_Battle
   #--------------------------------------------------------------------------
-  # ○ 戦闘開始
+  # �� �퓬�J�n
   #--------------------------------------------------------------------------
   alias :nzprism_option_battle_start :battle_start
   def battle_start
@@ -664,7 +665,7 @@ class Scene_Battle
     nzprism_option_battle_start
   end
   #--------------------------------------------------------------------------
-  # ○ ターン開始
+  # �� �^�[���J�n
   #--------------------------------------------------------------------------
   alias :nzprism_option_turn_start :turn_start
   def turn_start
@@ -674,14 +675,14 @@ class Scene_Battle
 end
 
 #==============================================================================
-# ★ Window_NZPrism_Option
+# �� Window_NZPrism_Option
 #------------------------------------------------------------------------------
-# 　オプション画面で、様々な設定項目を表示するウィンドウです。
+# �@�I�v�V������ʂŁA�l�X�Ȑݒ荀�ڂ�\������E�B���h�E�ł��B
 #==============================================================================
 
 class Window_NZPrism_Option
   #--------------------------------------------------------------------------
-  # ● 定数
+  # �� �萔
   #--------------------------------------------------------------------------
   ary = Array.new
   ary << :auto_dash      if AddAutoDash
@@ -701,13 +702,13 @@ class Window_NZPrism_Option
   
   WS_SHIFT = [(Max_W_Skin / 3), 2].max
   
-  command1 = "%s¥n¥¥C[14]← →¥¥C[0] 切り替え"
-  command2 = "%s¥n" +
-             "¥¥C[14]←¥¥C[0] %+2d　　" +
-             "¥¥C[14]→¥¥C[0] %+2d　　" +
-             "¥¥C[14]L ¥¥C[29]/¥¥C[14] A¥¥C[0]+¥¥C[14]←¥¥C[0] %+3d　　" +
-             "¥¥C[14]R ¥¥C[29]/¥¥C[14] A¥¥C[0]+¥¥C[14]→¥¥C[0] %+3d"
-  command3 = "%s¥n¥¥C[14]C¥¥C[0] 実行"
+  command1 = "%s\n\\C[14]�� ��\\C[0] �؂�ւ�"
+  command2 = "%s\n" +
+             "\\C[14]��\\C[0] %+2d�@�@" +
+             "\\C[14]��\\C[0] %+2d�@�@" +
+             "\\C[14]L \\C[29]/\\C[14] A\\C[0]+\\C[14]��\\C[0] %+3d�@�@" +
+             "\\C[14]R \\C[29]/\\C[14] A\\C[0]+\\C[14]��\\C[0] %+3d"
+  command3 = "%s\n\\C[14]C\\C[0] ���s"
   ary = Array.new
   ary << sprintf(command1,Help_AutoDash)                 if AddAutoDash
   ary << sprintf(command2,Help_DashSpeed,     -1,1,-2,2) if AddDashSpeed
@@ -742,7 +743,7 @@ class Window_NZPrism_Option
   remove_const(:Help_S_Volume)
   remove_const(:Help_Default)
   #--------------------------------------------------------------------------
-  # ● オブジェクト初期化
+  # �� �I�u�W�F�N�g������
   #--------------------------------------------------------------------------
   def initialize(help_window)
     @help_window = help_window
@@ -762,19 +763,19 @@ class Window_NZPrism_Option
     select(0)
   end
   #--------------------------------------------------------------------------
-  # ● 項目数の取得
+  # �� ���ڐ��̎擾
   #--------------------------------------------------------------------------
   def item_max
     ITEMS.size
   end
   #--------------------------------------------------------------------------
-  # ● 行数の取得
+  # �� �s���̎擾
   #--------------------------------------------------------------------------
   def row_max
     super + 1
   end
   #--------------------------------------------------------------------------
-  # ● 現在の行の取得
+  # �� ���݂̍s�̎擾
   #--------------------------------------------------------------------------
   def row
     result = super
@@ -782,13 +783,13 @@ class Window_NZPrism_Option
     result
   end
   #--------------------------------------------------------------------------
-  # ● 項目の幅を取得
+  # �� ���ڂ̕����擾
   #--------------------------------------------------------------------------
   def item_width
     contents_width / 2
   end
   #--------------------------------------------------------------------------
-  # ● 項目を描画する矩形の取得
+  # �� ���ڂ�`�悷���`�̎擾
   #--------------------------------------------------------------------------
   def item_rect(index, left = false)
     rect = super(index)
@@ -797,7 +798,7 @@ class Window_NZPrism_Option
     rect
   end
   #--------------------------------------------------------------------------
-  # ● 項目の消去
+  # �� ���ڂ̏���
   #--------------------------------------------------------------------------
   def clear_item(index)
     contents = self.contents
@@ -805,14 +806,14 @@ class Window_NZPrism_Option
     contents.clear_rect(item_rect(index, false))
   end
   #--------------------------------------------------------------------------
-  # ● 項目のテキスト描画
-  #     index     : インデックス
-  #     l_text    : 左側テキスト
-  #     r_text    : 右側テキスト
-  #     option = 0: 有効
-  #     option = 1: 無効
-  #     option = 2: ゲージ系項目用（通常）
-  #     option = 3: ゲージ系項目用（ミュート）
+  # �� ���ڂ̃e�L�X�g�`��
+  #     index     : �C���f�b�N�X
+  #     l_text    : �����e�L�X�g
+  #     r_text    : �E���e�L�X�g
+  #     option = 0: �L��
+  #     option = 1: ����
+  #     option = 2: �Q�[�W�n���ڗp�i�ʏ�j
+  #     option = 3: �Q�[�W�n���ڗp�i�~���[�g�j
   #--------------------------------------------------------------------------
   def draw_item_texts(index, l_text, r_text, option = 0)
     if l_text
@@ -828,37 +829,37 @@ class Window_NZPrism_Option
     end
   end
   #--------------------------------------------------------------------------
-  # ● ゲージの描画
-  #     index : インデックス
-  #     rate  : 割合（1.0 で満タン）
-  #     c1    : グラデーション 左端
-  #     c2    : グラデーション 右端
+  # �� �Q�[�W�̕`��
+  #     index : �C���f�b�N�X
+  #     rate  : �����i1.0 �Ŗ��^���j
+  #     c1    : �O���f�[�V���� ���[
+  #     c2    : �O���f�[�V���� �E�[
   #--------------------------------------------------------------------------
   def draw_gauge(index, rate, c1 = power_down_color, c2 = power_up_color)
     rect = item_rect(index)
     super(rect.x + 4, rect.y, rect.width - 8, rate, c1, c2)
   end
   #--------------------------------------------------------------------------
-  # ● 項目の描画
+  # �� ���ڂ̕`��
   #--------------------------------------------------------------------------
   def draw_item(index)
     case index
     when ITEMS.index(:auto_dash)
-      r_text = $game_system.auto_dash ? "オン" : "オフ"
+      r_text = $game_system.auto_dash ? "�I��" : "�I�t"
       draw_item_texts(index, AutoDash, r_text)
     when ITEMS.index(:dash_speed)
       draw_item_texts(index, DashSpeed, $game_system.dash_speed)
     when ITEMS.index(:diagonal_move)
-      r_text = $game_system.diagonal_move ? "オン" : "オフ"
+      r_text = $game_system.diagonal_move ? "�I��" : "�I�t"
       draw_item_texts(index, DiagonalMove, r_text)
     when ITEMS.index(:fast_message)
-      r_text = $game_system.fast_message ? "瞬時" : "普通"
+      r_text = $game_system.fast_message ? "�u��" : "����"
       draw_item_texts(index, FastMessage, r_text)
     when ITEMS.index(:c_memorization)
       case $game_system.c_memorization
-      when 0; r_text = "無効"
-      when 2; r_text = "有効"
-      else;   r_text = "ターン毎に初期化"
+      when 0; r_text = "����"
+      when 2; r_text = "�L��"
+      else;   r_text = "�^�[�����ɏ�����"
       end
       draw_item_texts(index, C_Memorization, r_text)
     when ITEMS.index(:w_skin)
@@ -894,7 +895,7 @@ class Window_NZPrism_Option
     when ITEMS.index(:m_master_volume)
       vol = $game_system.m_master_volume
       if vol == 0
-        r_text = "ミュート"
+        r_text = "�~���[�g"
         option = 3
       else
         r_text = vol
@@ -906,7 +907,7 @@ class Window_NZPrism_Option
     when ITEMS.index(:s_master_volume)
       vol = $game_system.s_master_volume
       if vol == 0
-        r_text = "ミュート"
+        r_text = "�~���[�g"
         option = 3
       else
         r_text = vol
@@ -921,14 +922,14 @@ class Window_NZPrism_Option
     end
   end
   #--------------------------------------------------------------------------
-  # ● 全項目の描画
+  # �� �S���ڂ̕`��
   #--------------------------------------------------------------------------
   def draw_all_items
     super
     draw_horz_line(line_height * ITEMS.index(:default))
   end
   #--------------------------------------------------------------------------
-  # ● 各項目の値の増減
+  # �� �e���ڂ̒l�̑���
   #--------------------------------------------------------------------------
   def value_plus(sign, skip, wrap = false)
     type = value = 0
@@ -1015,7 +1016,7 @@ class Window_NZPrism_Option
     redraw_item(ITEMS.index(:default))
   end
   #--------------------------------------------------------------------------
-  # ● 各項目の値を正規化
+  # �� �e���ڂ̒l�𐳋K��
   #--------------------------------------------------------------------------
   def justify_value(wrap, value)
     case @index
@@ -1069,14 +1070,14 @@ class Window_NZPrism_Option
     return value
   end
   #--------------------------------------------------------------------------
-  # ● 各種カーソル移動メソッド
+  # �� �e��J�[�\���ړ����\�b�h
   #--------------------------------------------------------------------------
-  def cursor_right(wrap = false); value_plus( 1, false, wrap); end  # 右
-  def cursor_left (wrap = false); value_plus(-1, false, wrap); end  # 左
-  def cursor_pagedown;            value_plus( 1, true);        end  # 1 ページ前
-  def cursor_pageup;              value_plus(-1, true);        end  # 1 ページ後
+  def cursor_right(wrap = false); value_plus( 1, false, wrap); end  # �E
+  def cursor_left (wrap = false); value_plus(-1, false, wrap); end  # ��
+  def cursor_pagedown;            value_plus( 1, true);        end  # 1 �y�[�W�O
+  def cursor_pageup;              value_plus(-1, true);        end  # 1 �y�[�W��
   #--------------------------------------------------------------------------
-  # ● カーソルの移動処理
+  # �� �J�[�\���̈ړ�����
   #--------------------------------------------------------------------------
   def process_cursor_move
     return unless cursor_movable?
@@ -1095,7 +1096,7 @@ class Window_NZPrism_Option
     Sound.play_cursor if @index != last_index
   end
   #--------------------------------------------------------------------------
-  # ● デフォルト値と等しいかを判定
+  # �� �f�t�H���g�l�Ɠ��������𔻒�
   #--------------------------------------------------------------------------
   def default?
     $game_system.auto_dash       == DefaultAutoDash        &&
@@ -1110,7 +1111,7 @@ class Window_NZPrism_Option
     $game_system.window_tone     == $data_system.window_tone
   end
   #--------------------------------------------------------------------------
-  # ● すべての項目をデフォルトに戻す
+  # �� ���ׂĂ̍��ڂ��f�t�H���g�ɖ߂�
   #--------------------------------------------------------------------------
   def restore_default_values
     $game_system.auto_dash       = DefaultAutoDash
@@ -1129,7 +1130,7 @@ class Window_NZPrism_Option
     select(0)
   end
   #--------------------------------------------------------------------------
-  # ● すべての項目を元に戻す
+  # �� ���ׂĂ̍��ڂ����ɖ߂�
   #--------------------------------------------------------------------------
   def restore_old_values
     $game_system.auto_dash       = @old_auto_dash
@@ -1144,13 +1145,13 @@ class Window_NZPrism_Option
     $game_system.s_master_volume = @old_s_master_volume
   end
   #--------------------------------------------------------------------------
-  # ● 現在のインデックスが項目「デフォルト」の位置にあるかどうかを判定
+  # �� ���݂̃C���f�b�N�X�����ځu�f�t�H���g�v�̈ʒu�ɂ��邩�ǂ����𔻒�
   #--------------------------------------------------------------------------
   def default_index?
     @index == ITEMS.index(:default)
   end
   #--------------------------------------------------------------------------
-  # ● 選択項目の有効状態を取得
+  # �� �I�����ڂ̗L����Ԃ��擾
   #--------------------------------------------------------------------------
   def current_item_enabled?
     if default_index?
@@ -1160,7 +1161,7 @@ class Window_NZPrism_Option
     end
   end
   #--------------------------------------------------------------------------
-  # ● ウィンドウスキンの更新
+  # �� �E�B���h�E�X�L���̍X�V
   #--------------------------------------------------------------------------
   def update_skin
     skin_id = $game_system.w_skin
@@ -1176,7 +1177,7 @@ class Window_NZPrism_Option
     @help_window.refresh
   end
   #--------------------------------------------------------------------------
-  # ● 色調の更新
+  # �� �F���̍X�V
   #--------------------------------------------------------------------------
   def update_tone
     tone = $game_system.window_tone
@@ -1184,7 +1185,7 @@ class Window_NZPrism_Option
     @help_window.tone.set (tone)
   end
   #--------------------------------------------------------------------------
-  # ● 透明度の更新
+  # �� �����x�̍X�V
   #--------------------------------------------------------------------------
   def update_back_opacity
     opacity = $game_system.w_opacity
@@ -1192,7 +1193,7 @@ class Window_NZPrism_Option
     @help_window.back_opacity = opacity
   end
   #--------------------------------------------------------------------------
-  # ● ヘルプウィンドウの更新
+  # �� �w���v�E�B���h�E�̍X�V
   #--------------------------------------------------------------------------
   def update_help
     @help_window.set_text(HELPS[@index])
@@ -1200,14 +1201,14 @@ class Window_NZPrism_Option
 end
   
 #==============================================================================
-# ★ Scene_NZPrism_Option
+# �� Scene_NZPrism_Option
 #------------------------------------------------------------------------------
-# 　オプション画面の処理を行うクラスです。
+# �@�I�v�V������ʂ̏������s���N���X�ł��B
 #==============================================================================
 
 class Scene_NZPrism_Option < Scene_MenuBase
   #--------------------------------------------------------------------------
-  # ● 開始処理
+  # �� �J�n����
   #--------------------------------------------------------------------------
   def start
     super
@@ -1215,7 +1216,7 @@ class Scene_NZPrism_Option < Scene_MenuBase
     create_option_window
   end
   #--------------------------------------------------------------------------
-  # ● オプションウィンドウの作成
+  # �� �I�v�V�����E�B���h�E�̍쐬
   #--------------------------------------------------------------------------
   def create_option_window
     @option_window = Window_NZPrism_Option.new(@help_window)
@@ -1224,7 +1225,7 @@ class Scene_NZPrism_Option < Scene_MenuBase
     @option_window.activate
   end
   #--------------------------------------------------------------------------
-  # ● オプション［決定］
+  # �� �I�v�V�����m����n
   #--------------------------------------------------------------------------
   def on_option_ok
     if @option_window.default_index?
@@ -1235,7 +1236,7 @@ class Scene_NZPrism_Option < Scene_MenuBase
     end
   end
   #--------------------------------------------------------------------------
-  # ● オプション［キャンセル］
+  # �� �I�v�V�����m�L�����Z���n
   #--------------------------------------------------------------------------
   def on_option_cancel
     @option_window.restore_old_values
